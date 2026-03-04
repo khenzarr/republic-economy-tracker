@@ -1,6 +1,28 @@
 {
   "name": "republic-economy-tracker",
   "version": "0.1.0",
+  "description": "A production-ready ecosystem explorer and analytics platform for the Republic blockchain",
+  "author": "Republic Economy Tracker Contributors",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/khenzarr/republic-economy-tracker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/khenzarr/republic-economy-tracker/issues"
+  },
+  "homepage": "https://github.com/khenzarr/republic-economy-tracker#readme",
+  "keywords": [
+    "republic",
+    "blockchain",
+    "cosmos",
+    "ecosystem",
+    "explorer",
+    "analytics",
+    "web3",
+    "defi",
+    "nft"
+  ],
   "private": true,
   "scripts": {
     "dev": "next dev",

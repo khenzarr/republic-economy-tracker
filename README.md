@@ -1,219 +1,347 @@
-# Republic Economy Tracker
+# 🌐 Republic Economy Tracker
 
-A production-ready ecosystem explorer for the Republic blockchain (Cosmos SDK-based).
+```
+██████╗ ███████╗██████╗ ██╗   ██╗██████╗ ██╗     ██╗ ██████╗
+██╔══██╗██╔════╝██╔══██╗██║   ██║██╔══██╗██║     ██║██╔════╝
+██████╔╝█████╗  ██████╔╝██║   ██║██████╔╝██║     ██║██║     
+██╔══██╗██╔══╝  ██╔═══╝ ██║   ██║██╔══██╗██║     ██║██║     
+██║  ██║███████╗██║     ╚██████╔╝██████╔╝███████╗██║╚██████╗
+╚═╝  ╚═╝╚══════╝╚═╝      ╚═════╝ ╚═════╝ ╚══════╝╚═╝ ╚═════╝
+ECONOMY TRACKER - Ecosystem Explorer for Republic Blockchain
+```
 
-## Features
+> **A production-ready ecosystem explorer and analytics platform for the Republic blockchain**
 
-- **Global Ecosystem Dashboard**: Real-time chain statistics including block height, validators, transactions, and token supply
-- **Project Directory**: Browse and discover projects building on Republic
-- **Blockchain Integration**: Direct RPC connection for live metrics
-- **Metrics Tracking**: Automated scoring system based on transaction volume, unique wallets, and growth rate
-- **Project Submission**: Community-driven project listings with admin approval workflow
-- **Wallet Integration**: Keplr wallet support for authentication and submissions
+[![Next.js](https://img.shields.io/badge/Next.js-14-black?style=flat-square&logo=next.js)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
+[![Prisma](https://img.shields.io/badge/Prisma-5-2D3748?style=flat-square&logo=prisma)](https://www.prisma.io/)
+[![TailwindCSS](https://img.shields.io/badge/Tailwind-4-38B2AC?style=flat-square&logo=tailwind-css)](https://tailwindcss.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+[![Vercel](https://img.shields.io/badge/Deploy-Vercel-black?style=flat-square&logo=vercel)](https://vercel.com)
 
-## Tech Stack
+---
 
-- **Frontend**: Next.js 14 (App Router), TypeScript, TailwindCSS, shadcn/ui
-- **Backend**: Next.js API Routes, Prisma ORM, PostgreSQL
-- **Blockchain**: CosmJS for RPC interaction
-- **Data Visualization**: Recharts
-- **State Management**: TanStack Query
-- **Deployment**: Vercel
+## 🎯 Mission
 
-## Getting Started
+Empower the Republic blockchain ecosystem with transparent, real-time analytics and a comprehensive project directory. We provide builders, validators, and investors with the tools to discover, track, and contribute to the growing Republic network.
+
+---
+
+## 🚀 Live Demo
+
+🔗 **[View Live Application](#)** _(Coming Soon)_
+
+---
+
+## 📸 Screenshots
+
+<div align="center">
+
+### Dashboard
+![Dashboard](./public/screenshots/dashboard.png)
+_Real-time blockchain statistics and ecosystem metrics_
+
+### Project Directory
+![Projects](./public/screenshots/projects.png)
+_Discover and explore projects building on Republic_
+
+### Project Analytics
+![Analytics](./public/screenshots/analytics.png)
+_Detailed metrics and growth tracking_
+
+</div>
+
+---
+
+## 🎯 The Problem
+
+The Republic blockchain ecosystem lacks a centralized platform for:
+- **Discovery**: Finding projects building on the network
+- **Transparency**: Accessing real-time on-chain metrics
+- **Community**: Connecting builders, validators, and users
+- **Analytics**: Understanding ecosystem growth and activity
+
+## ✨ The Solution
+
+Republic Economy Tracker provides:
+- 📊 **Real-time Chain Analytics** - Live blockchain statistics and validator data
+- 🗂️ **Project Directory** - Comprehensive catalog of ecosystem projects
+- 📈 **Automated Metrics** - Smart scoring based on transaction volume and growth
+- 🔐 **Wallet Integration** - Seamless Keplr wallet authentication
+- 👥 **Community Submissions** - Open platform for project listings
+- ⚡ **Production Ready** - Built for scale with modern Web3 stack
+
+---
+
+## ✨ Key Features
+
+### 🌐 Ecosystem Dashboard
+- Real-time block height and chain statistics
+- Active validator count and network health
+- 24-hour transaction volume tracking
+- Total supply and token metrics
+
+### 📁 Project Directory
+- Browse projects by category (DeFi, NFT, Gaming, Infrastructure, DAO, Social, Tools)
+- Advanced filtering and sorting capabilities
+- Verified project badges
+- Social links and contract addresses
+
+### 📊 Analytics Engine
+- Automated metrics calculation via hourly cron jobs
+- Smart scoring algorithm (transactions + unique wallets + growth rate)
+- 24h and 7-day transaction tracking
+- Unique wallet identification
+- Growth rate analysis
+
+### 🔐 Wallet Integration
+- Keplr wallet support
+- Wallet-gated project submissions
+- Admin authentication system
+- Secure signature-based auth
+
+### 👨‍💼 Admin Panel
+- Review and approve project submissions
+- Manage ecosystem directory
+- Verify legitimate projects
+- Community moderation tools
+
+### 🔄 Blockchain Integration
+- Direct RPC connection to Republic chain
+- CosmJS for transaction parsing
+- Real-time block data fetching
+- Contract address tracking
+
+---
+
+## 🏗️ Architecture
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                     Next.js 14 Frontend                      │
+│  (React Server Components + Client Components + App Router) │
+└─────────────────────┬───────────────────────────────────────┘
+                      │
+┌─────────────────────┴───────────────────────────────────────┐
+│                   API Routes (Serverless)                    │
+│  /api/stats  /api/projects  /api/admin  /api/cron          │
+└─────────────────────┬───────────────────────────────────────┘
+                      │
+        ┌─────────────┼─────────────┐
+        │             │             │
+┌───────▼──────┐ ┌───▼────────┐ ┌─▼──────────────┐
+│   Prisma ORM │ │  CosmJS    │ │ Metrics Engine │
+│  (Database)  │ │ (RPC/Chain)│ │  (Scoring)     │
+└───────┬──────┘ └───┬────────┘ └─┬──────────────┘
+        │            │              │
+┌───────▼──────┐ ┌───▼────────┐ ┌─▼──────────────┐
+│  PostgreSQL  │ │ Republic   │ │ Vercel Cron    │
+│   Database   │ │    RPC     │ │  (Hourly)      │
+└──────────────┘ └────────────┘ └────────────────┘
+```
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- **[Next.js 14](https://nextjs.org/)** - React framework with App Router
+- **[TypeScript](https://www.typescriptlang.org/)** - Type-safe development
+- **[TailwindCSS](https://tailwindcss.com/)** - Utility-first CSS
+- **[shadcn/ui](https://ui.shadcn.com/)** - High-quality React components
+- **[TanStack Query](https://tanstack.com/query)** - Data fetching and caching
+- **[Recharts](https://recharts.org/)** - Data visualization
+
+### Backend
+- **[Next.js API Routes](https://nextjs.org/docs/api-routes/introduction)** - Serverless functions
+- **[Prisma ORM](https://www.prisma.io/)** - Type-safe database client
+- **[PostgreSQL](https://www.postgresql.org/)** - Relational database
+- **[CosmJS](https://cosmos.github.io/cosmjs)** - Cosmos blockchain library
+
+### Blockchain
+- **[CosmJS Stargate](https://cosmos.github.io/cosmjs)** - RPC client
+- **[Keplr Wallet](https://www.keplr.app/)** - Cosmos wallet integration
+
+### Deployment
+- **[Vercel](https://vercel.com/)** - Hosting and serverless functions
+- **[Vercel Cron](https://vercel.com/docs/cron-jobs)** - Scheduled jobs
+- **[Vercel Postgres](https://vercel.com/docs/storage/vercel-postgres)** - Managed database (optional)
+
+---
+
+## 🚀 Quick Start
 
 ### Prerequisites
 
 - Node.js 18+
 - PostgreSQL database
-- Keplr wallet extension (for users)
+- Keplr wallet extension
 
 ### Installation
 
-1. Clone the repository:
 ```bash
-git clone <repository-url>
+# Clone the repository
+git clone https://github.com/khenzarr/republic-economy-tracker.git
 cd republic-economy-tracker
-```
 
-2. Install dependencies:
-```bash
+# Install dependencies
 npm install
-```
 
-3. Set up environment variables:
-```bash
+# Set up environment variables
 cp .env.example .env
-```
+# Edit .env with your configuration
 
-Edit `.env` and configure:
-- `DATABASE_URL`: Your PostgreSQL connection string
-- `NEXT_PUBLIC_RPC_ENDPOINT`: Republic RPC endpoint (default: https://rpc-t.republic.vinjan-inc.com)
-- `NEXT_PUBLIC_CHAIN_ID`: Chain ID (default: republic-1)
-- `ADMIN_WALLETS`: Comma-separated list of admin wallet addresses
-- `CRON_SECRET`: Secret key for securing cron endpoints
-
-4. Set up the database:
-```bash
+# Initialize database
 npm run db:push
-```
+npm run db:seed
 
-5. Seed initial categories (optional):
-```bash
-npx prisma studio
-```
-
-Create categories like:
-- DeFi
-- NFT
-- Gaming
-- Infrastructure
-- DAO
-
-### Development
-
-Run the development server:
-```bash
+# Start development server
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Open [http://localhost:3000](http://localhost:3000) to see the application.
 
-### Database Management
+### Environment Variables
 
-- **Push schema changes**: `npm run db:push`
-- **Create migration**: `npm run db:migrate`
-- **Open Prisma Studio**: `npm run db:studio`
+Create a `.env` file in the root directory:
 
-## Deployment
+```env
+# Database
+DATABASE_URL="postgresql://user:password@localhost:5432/republic_tracker"
 
-### Vercel Deployment
+# Republic Blockchain
+NEXT_PUBLIC_RPC_ENDPOINT="https://rpc-t.republic.vinjan-inc.com"
+NEXT_PUBLIC_CHAIN_ID="republic-1"
 
-1. Push your code to GitHub
+# Admin Configuration
+ADMIN_WALLETS="republic1..."
 
-2. Import project in Vercel:
-   - Connect your GitHub repository
-   - Configure environment variables
-   - Deploy
+# Security
+CRON_SECRET="your-random-secret-key"
 
-3. Set up PostgreSQL:
-   - Use Vercel Postgres, Supabase, or any PostgreSQL provider
-   - Add `DATABASE_URL` to Vercel environment variables
-
-4. Configure Cron Jobs:
-   - Vercel automatically sets up cron jobs from `vercel.json`
-   - The metrics update runs hourly
-   - Set `CRON_SECRET` in environment variables
-
-### Environment Variables in Vercel
-
-Add these in your Vercel project settings:
-
-```
-DATABASE_URL=postgresql://...
-NEXT_PUBLIC_RPC_ENDPOINT=https://rpc-t.republic.vinjan-inc.com
-NEXT_PUBLIC_CHAIN_ID=republic-1
-ADMIN_WALLETS=republic1...
-CRON_SECRET=your-secret-key
-NEXT_PUBLIC_APP_URL=https://your-domain.vercel.app
+# Application
+NEXT_PUBLIC_APP_URL="http://localhost:3000"
 ```
 
-### Post-Deployment
+---
 
-1. Run database migrations:
-```bash
-npx prisma migrate deploy
-```
+## 📚 Documentation
 
-2. Create initial categories via Prisma Studio or API
+- **[Getting Started](./GETTING_STARTED.md)** - Quick setup guide
+- **[Setup Guide](./docs/setup.md)** - Detailed configuration
+- **[Deployment Guide](./DEPLOYMENT.md)** - Production deployment
+- **[Contributing](./docs/CONTRIBUTING.md)** - Contribution guidelines
+- **[Landing Page Content](./docs/landing.md)** - Marketing copy
+- **[Manifesto](./docs/manifesto.md)** - Vision and roadmap
+- **[Quick Reference](./QUICK_REFERENCE.md)** - Command cheatsheet
 
-3. Set admin wallets in environment variables
+---
 
-4. Test the cron job:
-```bash
-curl -H "Authorization: Bearer YOUR_CRON_SECRET" https://your-domain.vercel.app/api/cron/update-metrics
-```
+## 🤝 Contributing
 
-## Project Structure
+We welcome contributions from the community! Whether you're fixing bugs, adding features, or improving documentation, your help is appreciated.
 
-```
-src/
-├── app/
-│   ├── api/              # API routes
-│   │   ├── stats/        # Chain statistics
-│   │   ├── projects/     # Project CRUD
-│   │   ├── categories/   # Category management
-│   │   ├── users/        # User registration
-│   │   ├── admin/        # Admin operations
-│   │   └── cron/         # Scheduled jobs
-│   ├── projects/         # Project pages
-│   ├── submit/           # Submission form
-│   ├── admin/            # Admin panel
-│   └── page.tsx          # Dashboard
-├── components/
-│   ├── ui/               # shadcn/ui components
-│   ├── wallet-connect.tsx
-│   └── stat-card.tsx
-└── lib/
-    ├── blockchain.ts     # CosmJS integration
-    ├── metrics.ts        # Metrics calculation
-    ├── prisma.ts         # Database client
-    └── utils.ts          # Utilities
-```
+### How to Contribute
 
-## API Endpoints
+1. **Fork the repository**
+2. **Create a feature branch** (`git checkout -b feature/amazing-feature`)
+3. **Commit your changes** (`git commit -m 'Add amazing feature'`)
+4. **Push to the branch** (`git push origin feature/amazing-feature`)
+5. **Open a Pull Request**
 
-### Public Endpoints
+Please read our [Contributing Guidelines](./docs/CONTRIBUTING.md) for detailed information.
 
-- `GET /api/stats` - Chain statistics
-- `GET /api/projects` - List projects
-- `GET /api/projects/[slug]` - Project details
-- `GET /api/categories` - List categories
-- `POST /api/projects` - Submit project (requires wallet)
-- `POST /api/users/register` - Register user
+### Code of Conduct
 
-### Admin Endpoints
+We are committed to providing a welcoming and inclusive environment. Please read our [Code of Conduct](./docs/CONTRIBUTING.md#code-of-conduct) before contributing.
 
-- `GET /api/admin/submissions` - List pending submissions
-- `POST /api/admin/submissions` - Approve/reject submissions
+---
 
-### Cron Endpoints
+## 🗺️ Roadmap
 
-- `GET /api/cron/update-metrics` - Update project metrics (requires CRON_SECRET)
+### Phase 1: Foundation (Current)
+- ✅ Core dashboard and analytics
+- ✅ Project directory and submissions
+- ✅ Wallet integration
+- ✅ Admin panel
+- ✅ Automated metrics
 
-## Metrics Calculation
+### Phase 2: Enhancement (Q2 2024)
+- 🔄 Advanced analytics and charts
+- 🔄 Historical data tracking
+- 🔄 Project comparison tools
+- 🔄 Email notifications
+- 🔄 API rate limiting
 
-Projects are scored based on:
+### Phase 3: Expansion (Q3 2024)
+- 📋 GraphQL API
+- 📋 WebSocket real-time updates
+- 📋 Mobile app (React Native)
+- 📋 Browser extension
+- 📋 Internationalization
 
-- **24h Transactions** (50% weight)
-- **Unique Wallets (7d)** (30% weight)
-- **Transaction Growth Rate** (20% weight)
+### Phase 4: Ecosystem (Q4 2024)
+- 📋 Token price integration
+- 📋 Governance features
+- 📋 Community voting
+- 📋 Advanced search
+- 📋 User profiles
 
-Score formula:
-```
-score = (tx24h * 0.5) + (uniqueWallets7d * 0.3) + (txGrowthRate * 0.2)
-```
+---
 
-## Admin Setup
+## 📊 Project Status
 
-To make a wallet an admin:
+- **Status**: Active Development
+- **Version**: 0.1.0
+- **Last Updated**: March 2024
+- **Maintainers**: [@khenzarr](https://github.com/khenzarr)
 
-1. Connect with the wallet in the app
-2. Update the user in the database:
-```sql
-UPDATE users SET "isAdmin" = true WHERE "walletAddress" = 'republic1...';
-```
+---
 
-Or add the wallet to `ADMIN_WALLETS` environment variable.
+## 📄 License
 
-## Contributing
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
 
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Open a Pull Request
+---
 
-## License
+## 🌟 Support the Project
 
-MIT
+If you find this project useful, please consider:
+
+- ⭐ Starring the repository
+- 🐛 Reporting bugs and issues
+- 💡 Suggesting new features
+- 🤝 Contributing code or documentation
+- 📢 Sharing with the community
+
+---
+
+## 📞 Contact & Community
+
+- **GitHub**: [khenzarr/republic-economy-tracker](https://github.com/khenzarr/republic-economy-tracker)
+- **Issues**: [Report a bug](https://github.com/khenzarr/republic-economy-tracker/issues)
+- **Discussions**: [Join the conversation](https://github.com/khenzarr/republic-economy-tracker/discussions)
+- **Twitter**: [@republic_chain](#) _(Coming Soon)_
+- **Discord**: [Join our community](#) _(Coming Soon)_
+
+---
+
+## 🙏 Acknowledgments
+
+Built with ❤️ for the Republic blockchain ecosystem.
+
+Special thanks to:
+- Republic blockchain team
+- Cosmos SDK community
+- Open-source contributors
+- Early adopters and testers
+
+---
+
+<div align="center">
+
+**[Documentation](./docs)** • **[Contributing](./docs/CONTRIBUTING.md)** • **[License](./LICENSE)**
+
+Made with ⚡ by the Republic community
+
+</div>
