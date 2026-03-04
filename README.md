@@ -29,7 +29,7 @@ Empower the Republic blockchain ecosystem with transparent, real-time analytics 
 
 ## 🚀 Live Demo
 
-🔗 **[View Live Application](#)** _(Coming Soon)_
+🔗 **[View Live Application](https://republic-economy-tracker.vercel.app)*
 
 ---
 
@@ -38,16 +38,16 @@ Empower the Republic blockchain ecosystem with transparent, real-time analytics 
 <div align="center">
 
 ### Dashboard
-![Dashboard](./public/screenshots/dashboard.png)
-_Real-time blockchain statistics and ecosystem metrics_
+<img width="1396" height="504" alt="image" src="https://github.com/user-attachments/assets/14611b01-29f1-45b5-bcfa-40ce3ff7e80b" />
+Real-time blockchain statistics and ecosystem metrics
 
 ### Project Directory
-![Projects](./public/screenshots/projects.png)
-_Discover and explore projects building on Republic_
+<img width="1392" height="355" alt="image" src="https://github.com/user-attachments/assets/28d62e8d-8c3b-4016-b5b6-715871acf07d" />
+Discover and explore projects building on Republic
 
-### Project Analytics
-![Analytics](./public/screenshots/analytics.png)
-_Detailed metrics and growth tracking_
+### Project Submission
+<img width="1371" height="1084" alt="image" src="https://github.com/user-attachments/assets/94074a94-e966-4825-a25f-3cfcf5b3b7ed" />
+Project Application Form
 
 </div>
 
