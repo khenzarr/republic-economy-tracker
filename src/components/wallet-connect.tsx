@@ -4,12 +4,6 @@ import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { truncateAddress } from '@/lib/utils';
 
-declare global {
-  interface Window {
-    keplr?: any;
-  }
-}
-
 export function WalletConnect() {
   const [address, setAddress] = useState<string | null>(null);
   const [isConnecting, setIsConnecting] = useState(false);
