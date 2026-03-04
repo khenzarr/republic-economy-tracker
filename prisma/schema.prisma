@@ -1,0 +1,88 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  walletAddress String   @id
+  isAdmin       Boolean  @default(false)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  projects    Project[]
+  submissions Submission[]
+
+  @@map("users")
+}
+
+model Category {
+  id        String    @id @default(cuid())
+  name      String    @unique
+  slug      String    @unique
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  projects  Project[]
+
+  @@map("categories")
+}
+
+model Project {
+  id              String   @id @default(cuid())
+  name            String
+  slug            String   @unique
+  description     String   @db.Text
+  category        Category @relation(fields: [categoryId], references: [id])
+  categoryId      String
+  website         String?
+  twitter         String?
+  discord         String?
+  github          String?
+  contractAddress String?
+  ownerWallet     String
+  owner           User     @relation(fields: [ownerWallet], references: [walletAddress])
+  verified        Boolean  @default(false)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  metrics ProjectMetrics?
+
+  @@index([slug])
+  @@index([categoryId])
+  @@index([ownerWallet])
+  @@index([contractAddress])
+  @@map("projects")
+}
+
+model ProjectMetrics {
+  id              String   @id @default(cuid())
+  project         Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  projectId       String   @unique
+  tx24h           Int      @default(0)
+  tx7d            Int      @default(0)
+  uniqueWallets7d Int      @default(0)
+  txGrowthRate    Float    @default(0)
+  score           Float    @default(0)
+  updatedAt       DateTime @updatedAt
+
+  @@index([score])
+  @@map("project_metrics")
+}
+
+model Submission {
+  id          String   @id @default(cuid())
+  projectData Json
+  status      String   @default("pending") // pending, approved, rejected
+  submittedBy String
+  user        User     @relation(fields: [submittedBy], references: [walletAddress])
+  reviewNote  String?  @db.Text
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([status])
+  @@index([submittedBy])
+  @@map("submissions")
+}
